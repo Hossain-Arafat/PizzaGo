@@ -1,0 +1,34 @@
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+  width: 100%;
+  background: #ffffff;
+
+  /* MORE up-down white space (height) */
+  padding: 30px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+.nav-right a {
+  margin-left: 26px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav-right a.active {
+  color: #0b4dff;
+  font-weight: bold;
+  border-bottom: 3px solid #0b4dff;
+  padding-bottom: 6px;
+}
+
+.nav-right a:hover {
+  color: #0b4dff;
+}

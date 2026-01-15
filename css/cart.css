@@ -1,0 +1,153 @@
+.cart-wrapper {
+  padding: 30px 20px 60px 20px;
+}
+
+.cart-title {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 25px 0 25px 0;
+}
+
+/* Main 2-column layout */
+.cart-layout {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+/* Left card (table) */
+.cart-card {
+  flex: 2;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #e5e5e5;
+}
+
+.cart-table thead th {
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: #1c2a3a;
+  background: #fafafa;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.cart-table tbody td {
+  padding: 18px 16px;
+  border-bottom: 1px solid #e5e5e5;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #111;
+}
+
+.cart-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Quantity box (like your screenshot) */
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: #e6e8ec;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.qty-btn:hover {
+  opacity: 0.85;
+}
+
+.qty-value {
+  min-width: 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Delete icon */
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: red;
+}
+
+.delete-btn:hover {
+  opacity: 0.8;
+}
+
+/* Right summary card */
+.summary-card {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 18px 16px 18px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+
+.summary-title {
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #222;
+}
+
+.summary-line {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 10px 0 14px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.place-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #0b4dff;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.place-btn:hover {
+  background: #063bd4;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .cart-layout {
+    flex-direction: column;
+  }
+}
