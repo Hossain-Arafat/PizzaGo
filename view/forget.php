@@ -16,12 +16,18 @@
         <div class="card">
             <h2>Forgot Password</h2>
 
-            <form novalidate>
+            <form action="../controller/forgetPassController.php" method="post" novalidate>
                 <label>Email</label>
-                <input type="email" placeholder="Enter your email" style="width: 100%; padding: 10px; border: 1px solid #cfd6e1; border-radius: 5px; font-size: 13px; outline: none; box-sizing: border-box;">
+                <input type="email" id="email" name="email" 
+                placeholder="Enter your email" style="width: 100%; 
+                padding: 10px; border: 1px solid #cfd6e1; border-radius: 5px; 
+                font-size: 13px; outline: none; box-sizing: border-box;">
 
                 <label style="margin-top: 15px;">New Password </span></label>
-                <input type="password" placeholder="Enter new password" style="width: 100%; padding: 10px; border: 1px solid #cfd6e1; border-radius: 5px; font-size: 13px; outline: none; box-sizing: border-box;">
+                <input type="password" id="password" name="password" 
+                placeholder="Enter new password" style="width: 100%; 
+                padding: 10px; border: 1px solid #cfd6e1; border-radius: 5px; 
+                font-size: 13px; outline: none; box-sizing: border-box;">
 
                 <input class="btn" type="submit" value="Submit">
             </form>

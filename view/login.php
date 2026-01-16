@@ -15,12 +15,12 @@
 
         <h3>Login to PizzaGo</h3><br>
 
-        <form action="assigned.php" novalidate>
+        <form action="../controller/loginController.php" method="post" novalidate>
             <label>Email</label><br>
-            <input type="email" required><br><br>
+            <input type="email" id="email" name="email"><br><br>
 
             <label>Password</label><br>
-            <input type="password" required><br><br>
+            <input type="password" id="password" name="password"><br><br>
 
             <input type="submit" value="Login">
         </form>

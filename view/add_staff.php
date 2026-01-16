@@ -25,15 +25,17 @@ $activePage = "staff";
         <h1>Add Staff Member</h1>
 
         <div class="form-box">
-            <form method="post" novalidate>
-                <label>Full Name *</label>
-                <input type="text" name="full_name" placeholder="Enter full name">
+            <form action="../controller/addStaffController.php" method="post" novalidate>
+                <label>Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
 
                 <label>Email *</label>
-                <input type="email" name="email" placeholder="Enter email address">
+                <input type="email" id="email" name="email" placeholder="Enter email address">
 
                 <label>Temporary Password *</label>
-                <input type="password" name="temp_password" placeholder="Enter temporary password">
+                <input type="password" id="password" name="password" placeholder="Enter a temporary password">
+
+                <input type="hidden" name="role" value="staff">
 
                 <div class="buttons">
                     <button type="submit" class="primary">Create Staff Account</button>

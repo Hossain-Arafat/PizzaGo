@@ -1,5 +1,6 @@
 <?php
-function dbConnection(){
+function dbConnection()
+{
     $hostName  = "localhost";
     $userName  = "root";
     $password  = "";
@@ -7,13 +8,8 @@ function dbConnection(){
 
     $conn = mysqli_connect($hostName, $userName, $password, $dbName);
 
-    if($conn){
-        echo "Connection Successful";
-        return $conn;
-    } else{
-        echo "Connection Failed";
+    if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
-        return false;
     }
+    return $conn;
 }
-?>

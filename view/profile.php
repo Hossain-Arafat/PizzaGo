@@ -1,5 +1,13 @@
 <?php
+session_start();
 $activePage = "profile";
+
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("location: login.php");
+    exit();
+}
+$nameValue  = $_SESSION['name'] ?? "";
+$emailValue = $_SESSION['email'] ?? "";
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +32,12 @@ $activePage = "profile";
         <div class="box">
             <h3>Profile Details</h3>
 
-            <form method="post" novalidate>
+            <form action="../controller/profileController.php" method="post" novalidate>
                 <label>Name *</label>
-                <input type="text" name="name">
+                <input type="text" name="name" value="<?= htmlspecialchars($nameValue) ?>">
 
                 <label>Email *</label>
-                <input type="email" name="email">
+                <input type="email" name="email" value="<?= htmlspecialchars($emailValue) ?>">
 
                 <div class="buttons">
                     <button type="submit" class="primary">Update Profile</button>

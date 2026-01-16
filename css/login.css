@@ -1,51 +1,41 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background-color: #f2f2f2;
 }
 
-
-
-
-.logo {
-    width: 75px;
-    vertical-align: middle;
-}
-
-.logo-text {
-    font-size: 22px;
-    font-weight: bold;
-    color: blue;
-    vertical-align: middle;
-    margin-left: 0; 
-}
-
-
-
-
-
-
-
+/* Login Box */
 .login-box {
     width: 350px;
-    background-color: white;
+    background-color: #ffffff;
     margin: 80px auto;
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .login-box h3 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Inputs */
 input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: blue;
+}
+
+/* Button */
 input[type="submit"] {
     width: 100%;
     padding: 8px;
@@ -59,13 +49,17 @@ input[type="submit"]:hover {
     background-color: darkblue;
 }
 
+/* Links */
 .link {
     text-align: center;
-    color: blue;
     font-size: 13px;
-    cursor: pointer;
 }
 
+.link a {
+    color: blue;
+    text-decoration: none;
+}
 
-
-
+.link a:hover {
+    text-decoration: underline;
+}
