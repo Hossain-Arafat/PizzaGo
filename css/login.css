@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #f2f2f2;
+}
+
+
+
+
+.logo {
+    width: 75px;
+    vertical-align: middle;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: blue;
+    vertical-align: middle;
+    margin-left: 0; 
+}
+
+
+
+
+
+
+
+.login-box {
+    width: 350px;
+    background-color: white;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-box h3 {
+    text-align: center;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+.link {
+    text-align: center;
+    color: blue;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+
+
+
