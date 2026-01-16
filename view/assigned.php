@@ -24,7 +24,7 @@
       <a class="menu" href="profile.php">
         Profile
       </a>
-      <a class="menu" href="../view/login.php">
+      <a class="menu" href="../controller/logoutController.php">
         Logout
       </a>
     </div>
