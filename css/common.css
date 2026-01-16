@@ -18,6 +18,8 @@ body {
    HEADER
 =========================== */
 .header {
+  position: relative;
+  z-index: 5;
   background: #fff;
   padding: 12px 18px;
   border-bottom: 1px solid #ccc;

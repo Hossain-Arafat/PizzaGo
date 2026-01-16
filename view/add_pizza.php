@@ -1,55 +1,55 @@
+<?php
+$activePage = "manage_pizzas";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add New Pizza - PizzaGo</title>
-    <link rel="stylesheet" href="./css/add_pizza.css">
+    <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/add_pizza.css">
 </head>
+
 <body>
 
-<div class="page">
+<?php include "header.php"; ?>
 
-    <div class="content">
-        <div class="sidebar">
-            
-            <ul>
-                <li><a href="dashboard.php">Dashboard</a></li>
-                <li class="active"><a href="manage_pizzas.php">Manage Pizzas</a></li>
-                <li><a href="orders_sales.php">Orders & Sales</a></li>
-                <li><a href="staff.php">Manage Staff</a></li>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
+<div class="dashboard-layout">
+    <?php require "sidebar.php"; ?>
+
+    <div class="main">
+        <h1>Add New Pizza</h1>
+
+        <div class="box">
+            <form method="post" novalidate>
+                <label>Pizza Name *</label>
+                <input type="text" name="pizza_name" placeholder="Enter pizza name">
+
+                <label>Description *</label>
+                <textarea name="description" placeholder="Enter description"></textarea>
+
+                <label>Price *</label>
+                <input type="text" name="price" placeholder="Enter price">
+
+                <label>Availability *</label>
+                <select name="availability">
+                    <option value="in">In Stock</option>
+                    <option value="out">Out of Stock</option>
+                </select>
+
+                <div class="buttons">
+                    <button type="submit" class="primary">Save Pizza</button>
+                    <a href="manage_pizzas.php" class="cancel">Cancel</a>
+                </div>
+            </form>
         </div>
+    </div>
+</div>
 
-        <div class="main">
-            <h1>Add New Pizza</h1>
-
-            <div class="box">
-                <form novalidate>
-                    <label>Pizza Name *</label>
-                    <input type="text" placeholder="Enter pizza name">
-
-                    <label>Description *</label>
-                    <textarea placeholder="Enter description"></textarea>
-
-                    <label>Price *</label>
-                    <input type="text" placeholder="Enter price">
-
-                    <label>Availability *</label>
-                    <select>
-                        <option>In Stock</option>
-                        <option>Out of Stock</option>
-                    </select>
-
-                    <div class="buttons">
-                        <button class="primary">Save Pizza</button>
-                        <a href="manage_pizzas.php" class="cancel">Cancel</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-
+<?php include "footer.php"; ?>
 
 </body>
 </html>

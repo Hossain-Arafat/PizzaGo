@@ -1,59 +1,18 @@
-body {
+* {
     margin: 0;
-    background: #f5f6fa;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-.page {
-    min-height: 100vh;
+body {
+    background: #f5f6fa;
+}
+
+/* Layout (same as other admin pages) */
+.dashboard-layout {
     display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1;
-    display: flex;
-}
-
-.sidebar {
-    width: 220px;
-    background: #fff;
-    padding: 20px;
-    border-right: 1px solid #ddd;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.logo img {
-    width: 30px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 15px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px;
-    display: block;
-    border-radius: 6px;
-}
-
-.sidebar ul li.active a,
-.sidebar ul li a:hover {
-    background: #eaf1ff;
-    color: #2979ff;
+    align-items: stretch;
 }
 
 .main {
@@ -64,7 +23,9 @@ body {
 .box {
     background: #fff;
     padding: 25px;
-    max-width: 500px;
+    max-width: 520px;
+    width: 100%;
+    margin-top: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
@@ -72,18 +33,19 @@ body {
 label {
     display: block;
     margin-top: 15px;
+    margin-bottom: 6px;
+    font-size: 14px;
 }
 
 input, textarea, select {
     width: 100%;
     padding: 10px;
-    margin-top: 6px;
     border: 1px solid #ccc;
     border-radius: 6px;
 }
 
 textarea {
-    height: 80px;
+    height: 90px;
     resize: none;
 }
 
@@ -91,6 +53,7 @@ textarea {
     margin-top: 20px;
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .primary {
@@ -108,4 +71,5 @@ textarea {
     padding: 10px 14px;
     border-radius: 6px;
     text-decoration: none;
+    display: inline-block;
 }

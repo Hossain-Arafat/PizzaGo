@@ -1,0 +1,33 @@
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar {
+    width: 220px;
+    background: #fff;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    min-height: 100vh;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    border-radius: 6px;
+}
+
+.sidebar ul li.active a,
+.sidebar ul li a:hover {
+    background: #eaf1ff;
+    color: #2979ff;
+}

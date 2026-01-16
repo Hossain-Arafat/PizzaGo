@@ -1,68 +1,59 @@
 <?php
-$name = "Margherita";
-$description = "Classic tomato and mozzarella";
-$price = "12.99";
-$availability = "In Stock";
+$activePage = "pizzas";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit Pizza - PizzaGo</title>
-    <link rel="stylesheet" href="./css/edit_pizza.css">
+    <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/edit_pizza.css">
 </head>
+
 <body>
 
-<div class="sidebar">
-    
-    <ul>
-        <li><a href="dashboard.php">Dashboard</a></li>
-        <li class="active"><a href="manage_pizzas.php">Manage Pizzas</a></li>
-        <li><a href="orders_sales.php">Orders & Sales</a></li>
-        <li><a href="staff.php">Manage Staff</a></li>
-        <li><a href="profile.php">Profile</a></li>
-        <li><a href="logout.php">Logout</a></li>
-    </ul>
-</div>
+<?php include "header.php"; ?>
 
-<div class="main">
-    <h1>Edit Pizza</h1>
+<div class="dashboard-layout">
+    <?php require "sidebar.php"; ?>
 
-    <div class="box">
-        <form method="post" novalidate>
-            <label>Pizza Name *</label>
-            <input type="text" value="<?php echo $name; ?>">
+    <div class="main">
+        <h1>Edit Pizza</h1>
 
-            <label>Description *</label>
-            <textarea><?php echo $description; ?></textarea>
+        <div class="form-box">
+            <form method="post" novalidate>
+                <label>Pizza Name *</label>
+                <input type="text" name="pizza_name" placeholder="Enter pizza name">
 
-            <label>Price *</label>
-            <input type="text" value="<?php echo $price; ?>">
+                <label>Description *</label>
+                <textarea name="description" placeholder="Enter description"></textarea>
 
-            <label>Availability *</label>
-            <select>
-                <option <?php if ($availability === "In Stock") echo "selected"; ?>>In Stock</option>
-                <option <?php if ($availability === "Out of Stock") echo "selected"; ?>>Out of Stock</option>
-            </select>
+                <label>Price *</label>
+                <input type="text" name="price" placeholder="Enter price">
 
-            <div class="buttons">
-                <button type="submit" class="primary">Update Pizza</button>
-                <button type="button" class="danger" onclick="confirmDelete()">Delete Pizza</button>
-                <a href="manage_pizzas.php" class="cancel">Cancel</a>
-            </div>
-        </form>
+                <label>Availability *</label>
+                <select name="availability">
+                    <option value="in">In Stock</option>
+                    <option value="out">Out of Stock</option>
+                </select>
+
+                <div class="buttons">
+                    <button type="submit" class="primary">Update Pizza</button>
+
+                    <!-- no action yet, DB later -->
+                    <button type="button" class="danger">Delete Pizza</button>
+
+                    <a href="manage_pizzas.php" class="cancel">Cancel</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<script>
-function confirmDelete() {
-    if (confirm("Are you sure you want to delete this pizza?")) {
-        window.location.href = "manage_pizzas.php";
-    }
-}
-</script>
-
-
+<?php include "footer.php"; ?>
 
 </body>
 </html>
