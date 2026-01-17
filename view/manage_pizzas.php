@@ -1,5 +1,8 @@
 <?php
-$activePage = "manage_pizzas";  
+$activePage = "manage_pizzas";
+
+require_once "../model/pizza.php";
+$pizzas = getAllPizzas();
 ?>
 
 <!DOCTYPE html>
@@ -16,84 +19,69 @@ $activePage = "manage_pizzas";
 
 <body>
 
-    <?php include "header.php"; ?>
+<?php include "header.php"; ?>
 
-    <div class="dashboard-layout">
-        <?php require "sidebar.php"; ?>
+<div class="dashboard-layout">
+    <?php require "sidebar.php"; ?>
 
-        <div class="main">
-            <div class="page-header">
-                <h1>Manage Pizza Menu</h1>
-                <a href="add_pizza.php" class="btn">Add New Pizza</a>
-            </div>
+    <div class="main">
+        <div class="page-header">
+            <h1>Manage Pizza Menu</h1>
+            <a href="add_pizza.php" class="btn">Add New Pizza</a>
+        </div>
 
-            <div class="box">
-                <table>
-                    <thead>
+        <div class="box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pizza Name</th>
+                        <th>Price</th>
+                        <th>Availability Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <?php if(!empty($pizzas)) : ?>
+                    <?php foreach($pizzas as $pizza) : ?>
+                        <?php
+                            $isInStock = ($pizza['availability'] === 'in_stock');
+                            $statusClass = $isInStock ? "in" : "out";
+                            $statusText = $isInStock ? "In Stock" : "Out of Stock";
+                        ?>
                         <tr>
-                            <th>Pizza Name</th>
-                            <th>Price</th>
-                            <th>Availability Status</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Margherita</td>
-                            <td>$12.99</td>
-                            <td><span class="status in">In Stock</span></td>
+                            <td><?= htmlspecialchars($pizza['name']) ?></td>
+                            <td>৳<?= htmlspecialchars($pizza['price']) ?></td>
+                            <td><span class="status <?= $statusClass ?>"><?= $statusText ?></span></td>
                             <td class="actions">
-                                <a class="icon-btn" href="edit_pizza.php" title="Edit">✏️</a>
-                                <a class="icon-btn" href="#" title="Delete">🗑️</a>
+                                <!-- Edit -->
+                                <a class="icon-btn" href="edit_pizza.php?id=<?= $pizza['id'] ?>" title="Edit">✏️</a>
+
+                                <!-- Delete (POST form for safety) -->
+                                <form action="../controller/deletePizzaController.php" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="<?= $pizza['id'] ?>">
+                                    <button type="submit" class="icon-btn" title="Delete"
+                                        onclick="return confirm('Are you sure you want to delete this pizza?');">
+                                        🗑️
+                                    </button>
+                                </form>
                             </td>
                         </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="4" style="text-align:center; padding: 18px;">
+                            No pizzas found. Click <b>Add New Pizza</b> to insert.
+                        </td>
+                    </tr>
+                <?php endif; ?>
+                </tbody>
 
-                        <tr>
-                            <td>Pepperoni</td>
-                            <td>$14.99</td>
-                            <td><span class="status in">In Stock</span></td>
-                            <td class="actions">
-                                <a class="icon-btn" href="edit_pizza.php" title="Edit">✏️</a>
-                                <a class="icon-btn" href="#" title="Delete">🗑️</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Vegetarian</td>
-                            <td>$13.99</td>
-                            <td><span class="status in">In Stock</span></td>
-                            <td class="actions">
-                                <a class="icon-btn" href="edit_pizza.php" title="Edit">✏️</a>
-                                <a class="icon-btn" href="#" title="Delete">🗑️</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Hawaiian</td>
-                            <td>$15.99</td>
-                            <td><span class="status out">Out of Stock</span></td>
-                            <td class="actions">
-                                <a class="icon-btn" href="edit_pizza.php" title="Edit">✏️</a>
-                                <a class="icon-btn" href="#" title="Delete">🗑️</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>BBQ Chicken</td>
-                            <td>$16.99</td>
-                            <td><span class="status in">In Stock</span></td>
-                            <td class="actions">
-                                <a class="icon-btn" href="edit_pizza.php" title="Edit">✏️</a>
-                                <a class="icon-btn" href="#" title="Delete">🗑️</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            </table>
         </div>
     </div>
+</div>
 
-    <?php include "footer.php"; ?>
+<?php include "footer.php"; ?>
 </body>
 </html>

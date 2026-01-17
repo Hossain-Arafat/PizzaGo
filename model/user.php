@@ -56,4 +56,34 @@ function updatePassword($email, $password) {
 }
 
 
+function getAllStaff(){
+    $conn = dbConnection();
+
+    $query = "SELECT id, name, email 
+              FROM users 
+              WHERE role='staff'
+              ORDER BY id DESC";
+
+    $result = mysqli_query($conn, $query);
+
+    $staffList = [];
+    if($result){
+        while($row = mysqli_fetch_assoc($result)){
+            $staffList[] = $row;
+        }
+    }
+    return $staffList;
+}
+
+function deleteStaff($id){
+    $conn = dbConnection();
+    $id = (int)$id;
+
+    // Optional safety: only delete if role is staff
+    $query = "DELETE FROM users WHERE id=$id AND role='staff'";
+    return mysqli_query($conn, $query) ? true : false;
+}
+
+
+
 ?>
