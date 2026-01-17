@@ -13,6 +13,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: Arial, sans-serif;
             background: #ffffff;
@@ -27,7 +28,7 @@
     <div class="header" style="position: relative;z-index: 5;background: #fff;
                 padding: 12px 18px; border-bottom: 1px solid #ccc;">
         <img src="../PizzaGo/image/logo.png" class="header-logo-img" alt="PizzaGo Logo"
-        style="width: 75px;height: auto;vertical-align: middle;">
+            style="width: 75px;height: auto;vertical-align: middle;">
         <span class="header-logo-text" style="font-size: 22px; font-weight: bold;
                     color: blue; vertical-align: middle; margin-left: 6px;">PizzaGo</span>
     </div>
@@ -48,21 +49,27 @@
         <div class="pizza-grid">
 
             <div class="pizza-card">
-                <div class="pizza-img"><span>Pizza Image</span></div>
+                <div class="menu-img-wrap">
+                    <img src="../PizzaGo/image/Margherita.jpg" alt="Margherita" class="menu-img">
+                </div>
                 <h3>Margherita</h3>
                 <p>Classic tomato and mozzarella</p>
             </div>
 
             <div class="pizza-card">
-                <div class="pizza-img"><span>Pizza Image</span></div>
+                <div class="menu-img-wrap">
+                    <img src="../PizzaGo/image/Pepperoni.jpg" alt="Pepperoni" class="menu-img">
+                </div>
                 <h3>Pepperoni</h3>
                 <p>Spicy pepperoni with cheese</p>
             </div>
 
             <div class="pizza-card">
-                <div class="pizza-img"><span>Pizza Image</span></div>
-                <h3>Vegetarian</h3>
-                <p>Fresh vegetables and herbs</p>
+                <div class="menu-img-wrap">
+                    <img src="../PizzaGo/image/Chicken Dominator.jpg" alt="Chicken Dominator" class="menu-img">
+                </div>
+                <h3>Chicken Dominator</h3>
+                <p>Four mouthwatering chicken toppings</p>
             </div>
         </div>
     </section>

@@ -66,20 +66,23 @@
   text-align: left;
 }
 
-/* Image placeholder */
-.pizza-img {
-  height: 170px;
-  background: #e9edf3;
+/* Image wrapper to clip properly */
+.menu-img-wrap {
+  width: 100%;
+  height: 220px;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;        
   margin-bottom: 18px;
+  background: #e6e8ec;     
 }
 
-.pizza-img span {
-  color: #9aa4b2;
-  font-size: 15px;
+
+/* Actual image */
+.menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* KEY: fills without stretching */
+  display: block;
 }
 
 /* Text */

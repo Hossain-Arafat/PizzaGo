@@ -42,8 +42,8 @@ $pizzas = getAvailablePizzasForMenu();
                     ?>
 
                     <div class="menu-card">
-                        <div class="menu-img">
-                            <span>Pizza Image</span>
+                        <div class="menu-img-wrap">
+                            <img src="../image/<?= htmlspecialchars($pizza['name']) ?>.jpg" alt="<?= htmlspecialchars($pizza['name']) ?>" class="menu-img">
                         </div>
 
                         <div class="menu-top">

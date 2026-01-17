@@ -15,7 +15,6 @@
   flex-wrap: wrap;
   gap: 26px;
 }
-
 /* Card */
 .menu-card {
   width: 31%;
@@ -33,17 +32,26 @@
   .menu-card { width: 100%; }
 }
 
-/* Image placeholder */
-.menu-img {
+/* Image wrapper to clip properly */
+.menu-img-wrap {
+  width: 100%;
   height: 220px;
-  background: #e6e8ec;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #8c96a6;
+  overflow: hidden;        
   margin-bottom: 18px;
+  background: #e6e8ec;     
 }
+
+
+/* Actual image */
+.menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* KEY: fills without stretching */
+  display: block;
+}
+
+
 
 /* Top row: title + stock badge */
 .menu-top {
@@ -113,4 +121,3 @@
 .add-form {
   margin-top: 10px;
 }
-
