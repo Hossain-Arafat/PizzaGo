@@ -14,10 +14,6 @@ if (!isset($activePage)) {
             <a href="manage_pizzas.php">Manage Pizzas</a>
         </li>
 
-        <li class="<?php echo ($activePage == 'orders_sales') ? 'active' : ''; ?>">
-            <a href="orders_sales.php">Orders & Sales</a>
-        </li>
-
         <li class="<?php echo ($activePage == 'staff') ? 'active' : ''; ?>">
             <a href="staff.php">Manage Staff</a>
         </li>

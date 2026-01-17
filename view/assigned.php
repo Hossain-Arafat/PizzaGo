@@ -69,7 +69,7 @@ if (!isset($_SESSION['isLoggedIn'])) {
               <td>2:15 PM</td>
               <td><span class="status preparing">Preparing</span></td>
               <td>
-              <a href="update2.php" class="btn">Update Status</a>
+              <a href="update.php" class="btn">Update Status</a>
               </td>
 
             </tr>

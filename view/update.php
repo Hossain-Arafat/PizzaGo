@@ -17,7 +17,7 @@
    
     <div class="sidebar">
       <a class="menu" href="assigned.php">Assigned Orders</a>
-      <a class="menu " href="update-status.php">Update Availability</a>
+      <a class="menu " href="availability.php">Update Availability</a>
       <a class="menu" href="profile.php">Profile</a>
       <a class="menu" href="../controller/logoutController.php">Logout</a>
     </div>

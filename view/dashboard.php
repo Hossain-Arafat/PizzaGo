@@ -79,18 +79,6 @@ $activePage = "dashboard";
                 </tr>
             </table>
         </div>
-
-        <div class="box">
-            <h3>Sales Overview</h3>
-            <div class="chart">
-                <div style="height:45%">Jan</div>
-                <div style="height:55%">Feb</div>
-                <div style="height:50%">Mar</div>
-                <div style="height:65%">Apr</div>
-                <div style="height:60%">May</div>
-                <div style="height:75%">Jun</div>
-            </div>
-        </div>
     </div>
 </div>
 

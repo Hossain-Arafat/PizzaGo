@@ -86,4 +86,23 @@ function deletePizza($id){
     return mysqli_query($conn, $query) ? true : false;
 }
 
+function getAvailablePizzasForMenu(){
+    $conn = dbConnection();
+
+    // If you want to show all pizzas, remove the WHERE condition
+    $query = "SELECT id, name, description, price, availability
+              FROM pizzas WHERE availability='in_stock'
+              ORDER BY id DESC ";
+
+    $result = mysqli_query($conn, $query);
+
+    $pizzas = [];
+    if($result){
+        while($row = mysqli_fetch_assoc($result)){
+            $pizzas[] = $row;
+        }
+    }
+    return $pizzas;
+}
+
 ?>

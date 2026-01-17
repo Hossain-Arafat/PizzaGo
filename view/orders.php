@@ -1,11 +1,6 @@
 <?php
 session_start();
 $activePage = 'orders';
-
-/* If no orders exist yet, create empty array */
-if (!isset($_SESSION['orders'])) {
-    $_SESSION['orders'] = [];
-}
 ?>
 
 <!DOCTYPE html>
@@ -39,28 +34,14 @@ if (!isset($_SESSION['orders'])) {
             </thead>
 
             <tbody>
-                <?php if (empty($_SESSION['orders'])) { ?>
-                    <tr>
-                        <td colspan="4" class="empty-row">No orders placed yet.</td>
-                    </tr>
-                <?php } else { ?>
-
-                    <?php
-                    // Show latest orders first
-                    $orders = array_reverse($_SESSION['orders']);
-                    foreach ($orders as $order) {
-                    ?>
                         <tr>
-                            <td>#<?php echo $order['id']; ?></td>
-                            <td><?php echo $order['date']; ?></td>
-                            <td>$<?php echo number_format($order['total'], 2); ?></td>
+                            <td>#123</td>
+                            <td>12jan-2026</td>
+                            <td>1200</td>
                             <td>
-                                <span class="status preparing"><?php echo $order['status']; ?></span>
+                                <span class="status preparing">preparing</span>
                             </td>
                         </tr>
-                    <?php } ?>
-
-                <?php } ?>
             </tbody>
         </table>
     </div>

@@ -89,43 +89,6 @@
   margin-bottom: 18px;
 }
 
-/* Quantity row */
-.qty-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.qty-label {
-  font-size: 14px;
-  color: #333;
-}
-
-.qty-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.qty-btn {
-  width: 26px;
-  height: 26px;
-  border: none;
-  background: #e6e8ec;
-  border-radius: 3px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.qty-value {
-  width: 35px;
-  text-align: center;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-}
-
 /* Add button */
 .add-btn {
   width: 100%;
