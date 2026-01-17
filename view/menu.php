@@ -41,7 +41,7 @@ $activePage = 'menu';
                 </div>
 
                 <p class="menu-desc">Classic tomato and mozzarella</p>
-                <div class="menu-price">$12.99</div>
+                <div class="menu-price">৳348</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>
@@ -76,7 +76,7 @@ $activePage = 'menu';
                 </div>
 
                 <p class="menu-desc">Spicy pepperoni with cheese</p>
-                <div class="menu-price">$14.99</div>
+                <div class="menu-price">৳648</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>
@@ -106,12 +106,12 @@ $activePage = 'menu';
                 </div>
 
                 <div class="menu-top">
-                    <h3>Vegetarian</h3>
+                    <h3>Chicken dominator</h3>
                     <span class="stock in">In Stock</span>
                 </div>
 
-                <p class="menu-desc">Fresh vegetables and herbs</p>
-                <div class="menu-price">$13.99</div>
+                <p class="menu-desc">Four mouthwatering chicken toppings</p>
+                <div class="menu-price">৳648</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>
@@ -141,12 +141,12 @@ $activePage = 'menu';
                 </div>
 
                 <div class="menu-top">
-                    <h3>Hawaiian</h3>
+                    <h3>Spicy Chicken</h3>
                     <span class="stock in">In Stock</span>
                 </div>
 
-                <p class="menu-desc">Ham and pineapple</p>
-                <div class="menu-price">$15.99</div>
+                <p class="menu-desc">A combination of spicy chicken and crunchy Capsicum</p>
+                <div class="menu-price">৳448</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>
@@ -176,12 +176,12 @@ $activePage = 'menu';
                 </div>
 
                 <div class="menu-top">
-                    <h3>BBQ Chicken</h3>
+                    <h3>Beefy Meatza</h3>
                     <span class="stock in">In Stock</span>
                 </div>
 
-                <p class="menu-desc">Grilled chicken with BBQ sauce</p>
-                <div class="menu-price">$16.99</div>
+                <p class="menu-desc">With minced beef, beef Pepperoni and jalapenos</p>
+                <div class="menu-price">৳748</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>
@@ -211,12 +211,12 @@ $activePage = 'menu';
                 </div>
 
                 <div class="menu-top">
-                    <h3>Four Cheese</h3>
+                    <h3>BBQ Chicken</h3>
                     <span class="stock in">In Stock</span>
                 </div>
 
-                <p class="menu-desc">Mozzarella, cheddar, parmesan, gorgonzola</p>
-                <div class="menu-price">$17.99</div>
+                <p class="menu-desc">Tender berbecued chicken, crunchy capsicum and smoky BBQ sauce</p>
+                <div class="menu-price">৳648</div>
 
                 <div class="qty-row">
                     <span class="qty-label">Quantity:</span>

@@ -24,7 +24,7 @@ $activePage = "manage_pizzas";
         <h1>Add New Pizza</h1>
 
         <div class="box">
-            <form method="post" novalidate>
+            <form action="../controller/addPizzaController.php" method="post" novalidate>
                 <label>Pizza Name *</label>
                 <input type="text" name="pizza_name" placeholder="Enter pizza name">
 
@@ -36,8 +36,8 @@ $activePage = "manage_pizzas";
 
                 <label>Availability *</label>
                 <select name="availability">
-                    <option value="in">In Stock</option>
-                    <option value="out">Out of Stock</option>
+                    <option value="in_stock">In Stock</option>
+                    <option value="out_of_stock">Out of Stock</option>
                 </select>
 
                 <div class="buttons">
