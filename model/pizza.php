@@ -105,4 +105,31 @@ function getAvailablePizzasForMenu(){
     return $pizzas;
 }
 
+function updatePizzaAvailabilityBulk($inStockIds)
+{
+    $conn = dbConnection();
+
+    // First set all to out_of_stock
+    $q1 = "UPDATE pizzas SET availability='out_of_stock'";
+    mysqli_query($conn, $q1);
+
+    // Then set selected ones to in_stock
+    if (!empty($inStockIds)) {
+        // make sure all are integers
+        $safeIds = [];
+        foreach ($inStockIds as $id) {
+            $id = (int)$id;
+            if ($id > 0) $safeIds[] = $id;
+        }
+
+        if (!empty($safeIds)) {
+            $idList = implode(",", $safeIds);
+            $q2 = "UPDATE pizzas SET availability='in_stock' WHERE id IN ($idList)";
+            mysqli_query($conn, $q2);
+        }
+    }
+
+    return true;
+}
+
 ?>

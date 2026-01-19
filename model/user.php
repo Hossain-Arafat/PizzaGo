@@ -84,6 +84,19 @@ function deleteStaff($id){
     return mysqli_query($conn, $query) ? true : false;
 }
 
+function countUsersByRole($role)
+{
+    $conn = dbConnection();
+    $role = mysqli_real_escape_string($conn, $role);
 
+    $query = "SELECT COUNT(*) AS total FROM users WHERE role='$role'";
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return (int)$row['total'];
+    }
+    return 0;
+}
 
 ?>

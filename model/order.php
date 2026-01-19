@@ -100,3 +100,99 @@ function getOrdersByCustomerId($customerId)
     return $orders;
 }
 
+function getAdminDashboardStats()
+{
+    $conn = dbConnection();
+
+    // Total orders
+    $q1 = "SELECT COUNT(*) AS total_orders FROM orders";
+    $r1 = mysqli_query($conn, $q1);
+    $totalOrders = ($r1) ? (int)mysqli_fetch_assoc($r1)['total_orders'] : 0;
+
+    // Total sales
+    $q2 = "SELECT IFNULL(SUM(total_amount), 0) AS total_sales FROM orders";
+    $r2 = mysqli_query($conn, $q2);
+    $totalSales = ($r2) ? (float)mysqli_fetch_assoc($r2)['total_sales'] : 0;
+
+    return [
+        "total_orders" => $totalOrders,
+        "total_sales"  => $totalSales
+    ];
+}
+
+function getRecentOrdersForAdmin()
+{
+    $conn = dbConnection();
+
+    $query = "SELECT 
+                o.id,
+                o.total_amount,
+                o.status,
+                o.created_at,
+                u.name AS customer_name,
+                u.email AS customer_email
+              FROM orders o
+              JOIN users u ON u.id = o.customer_id
+              ORDER BY o.id DESC";
+
+    $result = mysqli_query($conn, $query);
+
+    $orders = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $orders[] = $row;
+        }
+    }
+    return $orders;
+}
+function getOrderDetailsForUpdate($orderId)
+{
+    $conn = dbConnection();
+    $orderId = (int)$orderId;
+
+    // Get order + customer
+    $query = "SELECT 
+                o.id, o.status, o.created_at,
+                u.name AS customer_name
+              FROM orders o
+              JOIN users u ON u.id = o.customer_id
+              WHERE o.id = $orderId
+              LIMIT 1";
+
+    $result = mysqli_query($conn, $query);
+    if (!$result || mysqli_num_rows($result) !== 1) {
+        return null;
+    }
+
+    $order = mysqli_fetch_assoc($result);
+
+    // Get items list (pizza names)
+    $itemsQuery = "SELECT p.name
+                   FROM order_items oi
+                   JOIN pizzas p ON p.id = oi.pizza_id
+                   WHERE oi.order_id = $orderId";
+
+    $itemsResult = mysqli_query($conn, $itemsQuery);
+
+    $names = [];
+    if ($itemsResult) {
+        while ($row = mysqli_fetch_assoc($itemsResult)) {
+            $names[] = $row['name'];
+        }
+    }
+
+    $order['items'] = implode(", ", $names);
+    return $order;
+}
+
+function updateOrderStatus($orderId, $status)
+{
+    $conn = dbConnection();
+    $orderId = (int)$orderId;
+    $status = mysqli_real_escape_string($conn, $status);
+
+    $query = "UPDATE orders SET status='$status' WHERE id=$orderId";
+    return mysqli_query($conn, $query) ? true : false;
+}
+
+?>

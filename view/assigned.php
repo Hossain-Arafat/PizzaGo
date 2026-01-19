@@ -1,9 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['isLoggedIn'])) {
-	header("Location: login.php");
-	exit();
+    header("Location: login.php");
+    exit();
 }
+
+require_once "../model/order.php";
+
+$orders = getRecentOrdersForAdmin();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +22,7 @@ if (!isset($_SESSION['isLoggedIn'])) {
 
 <?php include "header.php"; ?>
 
-
   <div class="layout">
-
- 
     <div class="sidebar">
       <a class="menu active" href="#">
         Assigned Orders
@@ -36,7 +38,6 @@ if (!isset($_SESSION['isLoggedIn'])) {
       </a>
     </div>
 
- 
     <div class="content">
       <h1>Assigned Orders</h1>
 
@@ -53,27 +54,30 @@ if (!isset($_SESSION['isLoggedIn'])) {
           </thead>
 
           <tbody>
-            <tr>
-              <td>#12345</td>
-              <td>John Doe</td>
-              <td>2:30 PM</td>
-              <td><span class="status pending">Pending</span></td>
-               <td>
-              <a href="update.php" class="btn">Update Status</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>#12344</td>
-              <td>Jane Smith</td>
-              <td>2:15 PM</td>
-              <td><span class="status preparing">Preparing</span></td>
-              <td>
-              <a href="update.php" class="btn">Update Status</a>
-              </td>
-
-            </tr>
-
+            <?php if (!empty($orders)) : ?>
+              <?php foreach ($orders as $o) : ?>
+                <tr>
+                  <td>#<?= (int)$o['id'] ?></td>
+                  <td><?= htmlspecialchars($o['customer_name']) ?></td>
+                  <td><?= date("h:i A", strtotime($o['created_at'])) ?></td>
+                  <td>
+                    <span class="status preparing">
+                      <?= htmlspecialchars($o['status']) ?>
+                    </span>
+                  </td>
+                  <td>
+                    <!-- Pass order id so update page knows which order to update -->
+                    <a href="update.php?order_id=<?= (int)$o['id'] ?>" class="btn">Update Status</a>
+                  </td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else : ?>
+              <tr>
+                <td colspan="5" style="text-align:center; padding:16px;">
+                  No assigned/active orders found.
+                </td>
+              </tr>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>
