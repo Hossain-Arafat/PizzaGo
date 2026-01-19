@@ -1,6 +1,20 @@
 <?php
 session_start();
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("Location: login.php");
+    exit();
+}
 $activePage = 'orders';
+
+require_once "../model/order.php";
+
+$userId = (int)($_SESSION['user_id'] ?? 0);
+if ($userId <= 0) {
+    header("Location: login.php");
+    exit();
+}
+
+$orders = getOrdersByCustomerId($userId);
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +48,26 @@ $activePage = 'orders';
             </thead>
 
             <tbody>
+                <?php if (!empty($orders)) : ?>
+                    <?php foreach ($orders as $o) : ?>
                         <tr>
-                            <td>#123</td>
-                            <td>12jan-2026</td>
-                            <td>1200</td>
+                            <td>#<?= (int)$o['id'] ?></td>
+                            <td><?= date("d M Y", strtotime($o['created_at'])) ?></td>
+                            <td>৳<?= number_format((float)$o['total_amount'], 2) ?></td>
                             <td>
-                                <span class="status preparing">preparing</span>
+                                <span class="status preparing">
+                                    <?= htmlspecialchars($o['status']) ?>
+                                </span>
                             </td>
                         </tr>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <tr>
+                        <td colspan="4" class="empty-cell">No orders found.</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
+
         </table>
     </div>
 </div>

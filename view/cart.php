@@ -1,10 +1,18 @@
 <?php
 session_start();
 if (!isset($_SESSION['isLoggedIn'])) {
-	header("Location: login.php");
-	exit();
+    header("Location: login.php");
+    exit();
 }
 $activePage = 'cart';
+
+require_once "../model/pizza.php";
+$cart = $_SESSION['cart'] ?? [];
+$total = 0;
+$deliveryFee = 60.00;
+if (empty($cart)) {
+    $deliveryFee = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,59 +51,41 @@ $activePage = 'cart';
                         </tr>
                     </thead>
 
+
+
                     <tbody>
-                        <!-- Dummy rows (replace later with DB output) -->
-                        <tr>
-                            <td>Margherita</td>
-                            <td>$8.99</td>
+                        <?php if (empty($cart)) : ?>
+                            <tr>
+                                <td colspan="5" style="text-align:center; padding:18px;">Cart is empty.</td>
+                            </tr>
+                        <?php endif; ?>
 
-                            <td>2</td>
-
-                            <td>$17.98</td>
-
-                            <td>
-                                <form method="post" action="#">
-                                    <input type="hidden" name="item_name" value="Margherita">
-                                    <button type="button" class="delete-btn" title="Remove">🗑</button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>Pepperoni</td>
-                            <td>$10.50</td>
-
-                            <td>1</td>
-
-                            <td>$10.50</td>
-
-                            <td>
-                                <form method="post" action="#">
-                                    <input type="hidden" name="item_name" value="Pepperoni">
-                                    <button type="button" class="delete-btn" title="Remove">🗑</button>
-                                </form>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>BBQ Chicken</td>
-                            <td>$12.00</td>
-
-                            <td>3</td>
-
-                            <td>$36.00</td>
-
-                            <td>
-                                <form method="post" action="#">
-                                    <input type="hidden" name="item_name" value="BBQ Chicken">
-                                    <button type="button" class="delete-btn" title="Remove">🗑</button>
-                                </form>
-                            </td>
-                        </tr>
+                        <?php foreach ($cart as $pizzaId => $qty):
+                            $pizza = getPizzaById($pizzaId);
+                            if (!$pizza) continue;
+                            $subtotal = $pizza['price'] * $qty;
+                            $total += $subtotal;
+                        ?>
+                            <tr>
+                                <td><?= htmlspecialchars($pizza['name']) ?></td>
+                                <td>৳<?= $pizza['price'] ?></td>
+                                <td><?= $qty ?></td>
+                                <td>৳<?= $subtotal ?></td>
+                                <td>
+                                    <form method="post" action="../controller/orderController.php">
+                                        <input type="hidden" name="pizza_id" value="<?= $pizzaId ?>">
+                                        <button name="remove_item" class="delete-btn">🗑</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
+
 
                 </table>
             </div>
+
+            <?php $grandTotal = $total + $deliveryFee; ?>
 
             <!-- RIGHT: ORDER SUMMARY -->
             <div class="summary-card">
@@ -103,28 +93,34 @@ $activePage = 'cart';
 
                 <div class="summary-row">
                     <span>Subtotal</span>
-                    <span>$64.48</span>
+                    <span>৳<?= number_format($total, 2) ?></span>
                 </div>
 
                 <div class="summary-row">
-                    <span>Tax (10%)</span>
-                    <span>$6.45</span>
+                    <span>Delivery Fee</span>
+                    <span>৳<?= number_format($deliveryFee, 2) ?></span>
                 </div>
 
                 <div class="summary-line"></div>
 
                 <div class="summary-total">
                     <span>Total</span>
-                    <span>$70.93</span>
+                    <span>৳<?= number_format($grandTotal, 2) ?></span>
                 </div>
 
-                <form method="post" action="#">
-                    <button type="button" class="place-btn">Place Order</button>
+                <form method="post" action="../controller/orderController.php">
+                    <button name="place_order" class="place-btn"
+                        <?= empty($_SESSION['cart']) ? 'disabled' : '' ?>>
+                        Place Order
+                    </button>
                 </form>
-
             </div>
 
+
+
         </div>
+
+    </div>
     </div>
 
     <?php include "footer.php"; ?>

@@ -55,16 +55,14 @@ $pizzas = getAvailablePizzasForMenu();
                         <div class="menu-price">৳<?= htmlspecialchars($pizza['price']) ?></div>
 
                         <!-- KEEP cart.php logic same -->
-                        <form method="post" action="cart.php" class="add-form" novalidate>
-                            <!-- IMPORTANT: send ID + name + price -->
-                            <input type="hidden" name="pizza_id" value="<?= (int)$pizza['id'] ?>">
-                            <input type="hidden" name="pizza_qty" class="qty-hidden" value="1">
-
-                            <!-- Disable add if out of stock -->
-                            <button class="add-btn" type="submit" name="add_to_cart" <?= $isInStock ? '' : 'disabled' ?>>
+                        <form method="post" action="../controller/orderController.php">
+                            <input type="hidden" name="pizza_id" value="<?= $pizza['id'] ?>">
+                            <button type="submit" class="add-btn" name="add_to_cart" <?= !$isInStock ? 'disabled' : '' ?>>
                                 Add to Cart
                             </button>
+
                         </form>
+
                     </div>
 
                 <?php endforeach; ?>

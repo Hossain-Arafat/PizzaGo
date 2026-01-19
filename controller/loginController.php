@@ -14,6 +14,7 @@ function loginController(){
     $status = loginUser($user);
 
     if($status){
+        $_SESSION['user_id'] =  $status['id'];
         $_SESSION['name'] =  $status['name'];
         $_SESSION['email'] =  $status['email'];
         $_SESSION['role'] =  $status['role'];

@@ -91,7 +91,7 @@ function getAvailablePizzasForMenu(){
 
     // If you want to show all pizzas, remove the WHERE condition
     $query = "SELECT id, name, description, price, availability
-              FROM pizzas WHERE availability='in_stock'
+              FROM pizzas
               ORDER BY id DESC ";
 
     $result = mysqli_query($conn, $query);
