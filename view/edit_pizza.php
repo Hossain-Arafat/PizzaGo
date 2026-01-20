@@ -77,6 +77,6 @@ if(!$pizza){
 </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/edit_pizza.js"></script>
 </body>
 </html>

@@ -47,6 +47,6 @@ $activePage = "staff";
 </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/add_staff.js"></script>
 </body>
 </html>

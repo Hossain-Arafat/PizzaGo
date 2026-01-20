@@ -50,6 +50,6 @@ $activePage = "manage_pizzas";
 </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/add_pizza.js"></script>
 </body>
 </html>

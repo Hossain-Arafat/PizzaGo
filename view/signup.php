@@ -36,6 +36,6 @@
 </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/signup.js"></script>
 </body>
 </html>

@@ -2,6 +2,11 @@
 session_start();
 require_once "../model/user.php";
 
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("location: ../view/login.php");
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== "POST") {
     header("location: ../view/change_password.php");
     exit();
@@ -9,16 +14,31 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
 
 $password = trim($_POST['password'] ?? "");
 
+// Required
 if ($password === "") {
-    header("location: ../view/change_password.php");
+    echo "New password is required.";
     exit();
 }
 
-// Identify user by the email they logged in with
-$email = $_SESSION['email'];
+// Password: alphanumeric + minimum 6
+if (!preg_match('/^[A-Za-z0-9]{6,}$/', $password)) {
+    echo "Password must be alphanumeric and at least 6 characters (e.g., Abc123).";
+    exit();
+}
 
-$status = updatePassword($email,$password);
+// Identify by session email (trusted)
+$email = $_SESSION['email'] ?? "";
+if ($email === "") {
+    header("location: ../view/login.php");
+    exit();
+}
 
-// No messages, just return to same page
-header("location: ../view/profile.php");
-exit();
+$status = updatePassword($email, $password);
+
+if ($status) {
+    header("location: ../view/profile.php");
+    exit();
+} else {
+    echo "Password update failed.";
+    exit();
+}

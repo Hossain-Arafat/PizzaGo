@@ -1,35 +1,70 @@
 <?php
+session_start();
 require_once "../model/pizza.php";
 
-function addPizzaController(){
-    $name = trim($_POST['pizza_name'] ?? '');
-    $description = trim($_POST['description'] ?? '');
-    $price = trim($_POST['price'] ?? '');
-    $availability = trim($_POST['availability'] ?? 'in_stock');
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("Location: ../view/login.php");
+    exit();
+}
 
-    // basic validation
-    if($name === '' || $description === '' || $price === '' || !is_numeric($price)){
-        return false;
+function addPizzaController()
+{
+    if (!isset($_POST['pizza_name'], $_POST['description'], $_POST['price'], $_POST['availability'])) {
+        return ["ok" => false, "msg" => "Invalid request."];
+    }
+
+    $name = trim($_POST['pizza_name']);
+    $description = trim($_POST['description']);
+    $price = trim($_POST['price']);
+    $availability = trim($_POST['availability']);
+
+    // Required checks
+    if ($name === "" || $description === "" || $price === "") {
+        return ["ok" => false, "msg" => "All fields are required."];
+    }
+
+    // Name validation (simple)
+    if (strlen($name) < 2) {
+        return ["ok" => false, "msg" => "Pizza name must be at least 2 characters."];
+    }
+
+    // Price validation
+    if (!is_numeric($price) || (float)$price <= 0) {
+        return ["ok" => false, "msg" => "Price must be a positive number."];
+    }
+
+    // Availability validation
+    $allowed = ['in_stock', 'out_of_stock'];
+    if (!in_array($availability, $allowed)) {
+        return ["ok" => false, "msg" => "Invalid availability value."];
     }
 
     $pizza = [
         'name' => $name,
         'description' => $description,
-        'price' => $price,
+        'price' => (float)$price,
         'availability' => $availability
     ];
 
-    return addPizza($pizza);
+    $status = addPizza($pizza);
+
+    if ($status) {
+        return ["ok" => true, "msg" => "Pizza added"];
+    }
+    return ["ok" => false, "msg" => "Something went wrong (duplicate / DB error)."];
 }
 
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-    if(addPizzaController()){
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+    $result = addPizzaController();
+
+    if ($result["ok"]) {
         header("location: ../view/manage_pizzas.php");
         exit();
-    } else{
-        echo "Something went wrong (validation / duplicate / DB error).";
+    } else {
+        echo $result["msg"];
+        exit();
     }
-} else{
+} else {
     echo "Invalid request.";
 }
 ?>

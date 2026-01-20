@@ -40,6 +40,6 @@ $emailValue = $_SESSION['email'] ?? "";
 </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/change_password.js"></script>
 </body>
 </html>

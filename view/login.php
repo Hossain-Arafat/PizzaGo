@@ -39,6 +39,6 @@
     </div>
 
 <?php include "footer.php"; ?>
-
+<script src="../js/login.js"></script>
 </body>
 </html>

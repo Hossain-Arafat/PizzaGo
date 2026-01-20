@@ -48,8 +48,7 @@ $emailValue = $_SESSION['email'] ?? "";
         </div>
     </div>
     <?php include "footer.php" ?>
-
-
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>
