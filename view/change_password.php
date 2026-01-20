@@ -1,12 +1,12 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['isLoggedIn'])) {
     header("location: login.php");
     exit();
 }
 $emailValue = $_SESSION['email'] ?? "";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,6 @@ $emailValue = $_SESSION['email'] ?? "";
     <link rel="stylesheet" href="../css/change_password.css">
 </head>
 <body>
-
 <?php include "header.php"; ?>
 
 <div class="page">

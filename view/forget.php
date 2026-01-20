@@ -41,6 +41,7 @@
 
     <?php include "footer.php"; ?>
     <script src="../js/forget.js"></script>
+    
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 <?php
 $activePage = "manage_pizzas";
-
 require_once "../model/pizza.php";
 
 $id = $_GET['id'] ?? '';
@@ -38,7 +37,7 @@ if(!$pizza){
         <h1>Edit Pizza</h1>
 
         <div class="form-box">
-            <!-- UPDATE FORM -->
+            
             <form action="../controller/updatePizzaController.php" method="post" novalidate>
 
                 <input type="hidden" name="id" value="<?= htmlspecialchars($pizza['id']) ?>">
@@ -64,7 +63,7 @@ if(!$pizza){
                 </div>
             </form>
 
-            <!-- DELETE FORM (separate) -->
+            
             <form action="../controller/deletePizzaController.php" method="post" style="margin-top: 12px;">
                 <input type="hidden" name="id" value="<?= htmlspecialchars($pizza['id']) ?>">
                 <button type="submit" class="danger" onclick="return confirm('Are you sure you want to delete this pizza?');">
