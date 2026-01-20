@@ -9,19 +9,16 @@ body {
     background: #f5f6fa;
 }
 
-/* Layout wrapper */
 .dashboard-layout {
     display: flex;
-    align-items: stretch;  /* sidebar starts exactly from top of this row */
+    align-items: stretch;  
 }
 
-/* Main content: IMPORTANT - remove margin-left */
 .main {
     flex: 1;
     padding: 30px;
 }
 
-/* Page heading row (NOT site header) */
 .page-header {
     display: flex;
     justify-content: space-between;
@@ -34,7 +31,6 @@ body {
     margin: 0;
 }
 
-/* Button */
 .btn {
     background: #2979ff;
     color: #fff;
@@ -44,7 +40,6 @@ body {
     display: inline-block;
 }
 
-/* Box + table */
 .box {
     background: #fff;
     padding: 20px;

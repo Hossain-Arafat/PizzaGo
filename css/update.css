@@ -4,13 +4,10 @@ body{
   background:#f3f4f6;
 }
 
-
 .brand-logo{
   width:75px;
   vertical-align:middle;
 }
-
-
 
 .brand-text{
   font-weight:bold;
@@ -20,12 +17,10 @@ body{
   margin-left:6px;
 }
 
-
 .layout{
   display:flex;
   padding-bottom:50px;  
 }
-
 
 .sidebar{
   width:220px;
@@ -54,7 +49,6 @@ body{
   color:#0b4fff;
 }
 
-
 .content{
   flex:1;
   padding:25px;
@@ -64,7 +58,6 @@ body{
   margin:0 0 16px 0;
   font-size:26px;
 }
-
 
 .card{
   background:#fff;
@@ -79,7 +72,6 @@ body{
   margin:0 0 12px 0;
   font-size:14px;
 }
-
 
 .details .row{
   display:flex;
@@ -96,7 +88,6 @@ body{
 .right{
   color:#333;
 }
-
 
 label{
   display:block;
@@ -119,7 +110,6 @@ label{
 .select:focus{
   border-color:#4a8bff;
 }
-
 
 .btn-row{
   margin-top:14px;
@@ -157,5 +147,7 @@ label{
 .btn-cancel:hover{
   background:#d1d5db;
 }
+
+
 
 
