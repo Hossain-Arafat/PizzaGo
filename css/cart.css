@@ -8,14 +8,12 @@
   margin: 25px 0 25px 0;
 }
 
-/* Main 2-column layout */
 .cart-layout {
   display: flex;
   gap: 26px;
   align-items: flex-start;
 }
 
-/* Left card (table) */
 .cart-card {
   flex: 2;
   background: #ffffff;
@@ -52,7 +50,6 @@
   border-bottom: none;
 }
 
-/* Quantity box (like your screenshot) */
 .qty-box {
   display: inline-flex;
   align-items: center;
@@ -79,7 +76,6 @@
   font-size: 14px;
 }
 
-/* Delete icon */
 .delete-btn {
   background: transparent;
   border: none;
@@ -92,7 +88,6 @@
   opacity: 0.8;
 }
 
-/* Right summary card */
 .summary-card {
   flex: 1;
   background: #ffffff;
@@ -145,7 +140,6 @@
   background: #063bd4;
 }
 
-/* Responsive */
 @media (max-width: 1000px) {
   .cart-layout {
     flex-direction: column;
