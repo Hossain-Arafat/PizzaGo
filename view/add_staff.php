@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("Location: login.php");
+    exit();
+}
 $activePage = "staff";
 ?>
 
@@ -6,7 +11,7 @@ $activePage = "staff";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Staff - PizzaGo</title>
+    <title>PizzaGo|Add Staff</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">
@@ -25,13 +30,13 @@ $activePage = "staff";
 
         <div class="form-box">
             <form action="../controller/addStaffController.php" method="post" novalidate>
-                <label>Name *</label>
+                <label>Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name">
 
-                <label>Email *</label>
+                <label>Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter email address">
 
-                <label>Temporary Password *</label>
+                <label>Temporary Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter a temporary password">
 
                 <input type="hidden" name="role" value="staff">

@@ -19,7 +19,7 @@ if(!$pizza){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Pizza - PizzaGo</title>
+    <title>PizzaGo|Edit Pizza</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">
@@ -42,16 +42,16 @@ if(!$pizza){
 
                 <input type="hidden" name="id" value="<?= htmlspecialchars($pizza['id']) ?>">
 
-                <label>Pizza Name *</label>
+                <label>Pizza Name</label>
                 <input type="text" name="pizza_name" value="<?= htmlspecialchars($pizza['name']) ?>" placeholder="Enter pizza name">
 
-                <label>Description *</label>
+                <label>Description</label>
                 <textarea name="description" placeholder="Enter description"><?= htmlspecialchars($pizza['description']) ?></textarea>
 
-                <label>Price *</label>
+                <label>Price</label>
                 <input type="text" name="price" value="<?= htmlspecialchars($pizza['price']) ?>" placeholder="Enter price">
 
-                <label>Availability *</label>
+                <label>Availability</label>
                 <select name="availability">
                     <option value="in_stock" <?= ($pizza['availability'] === 'in_stock') ? 'selected' : '' ?>>In Stock</option>
                     <option value="out_of_stock" <?= ($pizza['availability'] === 'out_of_stock') ? 'selected' : '' ?>>Out of Stock</option>

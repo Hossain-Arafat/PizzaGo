@@ -11,7 +11,7 @@ $orders = getRecentOrdersForAdmin();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PizzaGo | Assigned Orders</title>
+  <title>PizzaGo|Assigned Orders</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/assigned.css">
@@ -22,18 +22,10 @@ $orders = getRecentOrdersForAdmin();
 
   <div class="layout">
     <div class="sidebar">
-      <a class="menu active" href="#">
-        Assigned Orders
-      </a>
-      <a class="menu" href="availability.php">
-        Update Availability
-      </a>
-      <a class="menu" href="profile.php">
-        Profile
-      </a>
-      <a class="menu" href="../controller/logoutController.php">
-        Logout
-      </a>
+      <a class="menu active" href="#">Assigned Orders</a>
+      <a class="menu" href="availability.php">Update Availability</a>
+      <a class="menu" href="profile.php">Profile</a>
+      <a class="menu" href="../controller/logoutController.php">Logout</a>
     </div>
 
     <div class="content">

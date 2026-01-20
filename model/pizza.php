@@ -4,13 +4,11 @@ require_once 'connection.php';
 function addPizza($pizza){
     $conn = dbConnection();
 
-    // Escape inputs (simple protection)
     $name = mysqli_real_escape_string($conn, $pizza['name']);
     $description = mysqli_real_escape_string($conn, $pizza['description']);
     $price = (float)$pizza['price'];
     $availability = mysqli_real_escape_string($conn, $pizza['availability']);
 
-    // Check duplicate pizza name
     $checkQuery = "SELECT id FROM pizzas WHERE name='$name'";
     $result = mysqli_query($conn, $checkQuery);
 
@@ -18,7 +16,6 @@ function addPizza($pizza){
         return false;
     }
 
-    // Correct insert query (matches your DB table)
     $query = "INSERT INTO pizzas (name, description, price, availability)
               VALUES ('$name', '$description', $price, '$availability')";
 
@@ -61,7 +58,6 @@ function updatePizza($pizza){
     $price = (float)$pizza['price'];
     $availability = mysqli_real_escape_string($conn, $pizza['availability']);
 
-    // prevent duplicate name for other pizzas
     $checkQuery = "SELECT id FROM pizzas WHERE name='$name' AND id <> $id";
     $checkResult = mysqli_query($conn, $checkQuery);
     if($checkResult && mysqli_num_rows($checkResult) > 0){
@@ -89,7 +85,6 @@ function deletePizza($id){
 function getAvailablePizzasForMenu(){
     $conn = dbConnection();
 
-    // If you want to show all pizzas, remove the WHERE condition
     $query = "SELECT id, name, description, price, availability
               FROM pizzas
               ORDER BY id DESC ";
@@ -109,13 +104,10 @@ function updatePizzaAvailabilityBulk($inStockIds)
 {
     $conn = dbConnection();
 
-    // First set all to out_of_stock
     $q1 = "UPDATE pizzas SET availability='out_of_stock'";
     mysqli_query($conn, $q1);
 
-    // Then set selected ones to in_stock
     if (!empty($inStockIds)) {
-        // make sure all are integers
         $safeIds = [];
         foreach ($inStockIds as $id) {
             $id = (int)$id;

@@ -24,7 +24,7 @@ $recentOrders = getRecentOrdersForAdmin();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - PizzaGo</title>
+    <title>PizzaGo|Admin Dashboard</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">

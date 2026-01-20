@@ -9,7 +9,7 @@ $staffList = getAllStaff();
 
 <head>
     <meta charset="UTF-8">
-    <title>Manage Staff - PizzaGo</title>
+    <title>PizzaGo|Manage Staff</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">

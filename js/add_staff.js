@@ -1,4 +1,3 @@
-// ../js/add_staff.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const name = document.getElementById("name");

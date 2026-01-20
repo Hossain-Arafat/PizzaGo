@@ -6,16 +6,14 @@ $pizzas = getAllPizzas();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Manage Pizzas - PizzaGo</title>
+    <title>PizzaGo|Manage Pizzas</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/manage_pizzas.css">
 </head>
-
 <body>
 
 <?php include "header.php"; ?>

@@ -16,7 +16,6 @@ function placeOrder($userId, $cart)
         $total = 0.0;
         $deliveryFee = 60.00;
 
-        // Calculate total from cart
         foreach ($cart as $pizzaId => $qty) {
             $pizzaId = (int)$pizzaId;
             $qty = (int)$qty;
@@ -24,7 +23,7 @@ function placeOrder($userId, $cart)
             if ($pizzaId <= 0 || $qty <= 0) continue;
 
             $pizza = getPizzaById($pizzaId);
-            if (!$pizza) continue; // pizza deleted / not found
+            if (!$pizza) continue;
 
             $price = (float)$pizza['price'];
             $total += ($price * $qty);
@@ -36,7 +35,6 @@ function placeOrder($userId, $cart)
 
         $total = (float)($total + $deliveryFee);
 
-        // Insert order
         $orderQuery = "INSERT INTO orders (customer_id, total_amount)
                        VALUES ($userId, $total)";
         $orderRes = mysqli_query($conn, $orderQuery);
@@ -49,7 +47,6 @@ function placeOrder($userId, $cart)
             throw new Exception("Failed to get order id.");
         }
 
-        // Insert order items
         foreach ($cart as $pizzaId => $qty) {
             $pizzaId = (int)$pizzaId;
             $qty = (int)$qty;
@@ -70,7 +67,7 @@ function placeOrder($userId, $cart)
         }
 
         mysqli_commit($conn);
-        return $orderId; // ✅ return new order id
+        return $orderId; 
 
     } catch (Exception $e) {
         mysqli_rollback($conn);
@@ -78,7 +75,6 @@ function placeOrder($userId, $cart)
     }
 }
 
-/* Get all orders for a customer (Order history) */
 function getOrdersByCustomerId($customerId)
 {
     $conn = dbConnection();
@@ -104,12 +100,10 @@ function getAdminDashboardStats()
 {
     $conn = dbConnection();
 
-    // Total orders
     $q1 = "SELECT COUNT(*) AS total_orders FROM orders";
     $r1 = mysqli_query($conn, $q1);
     $totalOrders = ($r1) ? (int)mysqli_fetch_assoc($r1)['total_orders'] : 0;
 
-    // Total sales
     $q2 = "SELECT IFNULL(SUM(total_amount), 0) AS total_sales FROM orders";
     $r2 = mysqli_query($conn, $q2);
     $totalSales = ($r2) ? (float)mysqli_fetch_assoc($r2)['total_sales'] : 0;
@@ -150,7 +144,6 @@ function getOrderDetailsForUpdate($orderId)
     $conn = dbConnection();
     $orderId = (int)$orderId;
 
-    // Get order + customer
     $query = "SELECT 
                 o.id, o.status, o.created_at,
                 u.name AS customer_name
@@ -166,7 +159,6 @@ function getOrderDetailsForUpdate($orderId)
 
     $order = mysqli_fetch_assoc($result);
 
-    // Get items list (pizza names)
     $itemsQuery = "SELECT p.name
                    FROM order_items oi
                    JOIN pizzas p ON p.id = oi.pizza_id

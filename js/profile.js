@@ -1,4 +1,3 @@
-// ../js/profile.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector('form[action="../controller/profileController.php"]');
   if (!form) return;

@@ -1,4 +1,3 @@
-// ../js/forget.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const email = document.getElementById("email");
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function isValidPassword(value) {
-    // Alphanumeric only + minimum 6 characters
     const pattern = /^[A-Za-z0-9]{6,}$/;
     return pattern.test(value);
   }

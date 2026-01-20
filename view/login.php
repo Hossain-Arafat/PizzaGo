@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>PizzaGo Login</title>
+    <title>PizzaGo|Login</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/login.css">
@@ -30,8 +30,7 @@
         <a href="forget.php">Forgot Password?</a>
         </p>
         <br>
-        <p class="link">
-        Don't have an account?
+        <p class="link">Don't have an account?
         <a href="signup.php">Register</a>
         </p>
 

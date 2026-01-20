@@ -21,7 +21,7 @@ if (empty($cart)) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
+    <title>PizzaGo|Cart</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/navBar.css">
@@ -51,7 +51,6 @@ if (empty($cart)) {
                         </tr>
                     </thead>
 
-
                     <tbody>
                         <?php if (empty($cart)) : ?>
                             <tr>
@@ -79,14 +78,11 @@ if (empty($cart)) {
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-
-
                 </table>
             </div>
 
             <?php $grandTotal = $total + $deliveryFee; ?>
-
-            
+           
             <div class="summary-card">
                 <h2 class="summary-title">Order Summary</h2>
 
@@ -109,13 +105,10 @@ if (empty($cart)) {
 
                 <form method="post" action="../controller/orderController.php">
                     <button name="place_order" class="place-btn"
-                        <?= empty($_SESSION['cart']) ? 'disabled' : '' ?>>
-                        Place Order
+                        <?= empty($_SESSION['cart']) ? 'disabled' : '' ?>>Place Order
                     </button>
                 </form>
             </div>
-
-
 
         </div>
 
@@ -124,5 +117,4 @@ if (empty($cart)) {
 
     <?php include "footer.php"; ?>
 </body>
-
 </html>

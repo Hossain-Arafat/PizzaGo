@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Forgot Password</title>
+    <title>PizzaGo|Forget Password</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/forget.css">
@@ -43,5 +43,4 @@
     <script src="../js/forget.js"></script>
     
 </body>
-
 </html>

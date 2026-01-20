@@ -11,7 +11,7 @@ $pizzas = getAllPizzas();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PizzaGo | Update Availability</title>
+  <title>PizzaGo|Stock Availability</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/availability.css">

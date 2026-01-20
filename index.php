@@ -31,12 +31,26 @@
             style="width: 75px;height: auto;vertical-align: middle;">
         <span class="header-logo-text" style="font-size: 22px; font-weight: bold;
                     color: blue; vertical-align: middle; margin-left: 6px;">PizzaGo</span>
+
+        <div style="float: right; margin-top: 18px;">
+            <a href="../PizzaGo/view/login.php"
+                style="text-decoration: none; color: #333; margin-right: 18px; font-weight: bold;">
+                Login
+            </a>
+
+            <a href="../PizzaGo/view/signup.php"
+                style="text-decoration: none; background: red; color: #fff;
+              padding: 8px 14px; border-radius: 4px; font-weight: bold;">
+                Sign Up
+            </a>
+        </div>
+
     </div>
 
     <section class="hero">
         <div class="hero-content">
             <h1>Order Your Favorite Pizza Online</h1>
-            <p>Fresh ingredients, hot delivery, unbeatable taste!</p>
+            <p>Fresh ingredients, fast delivery, unbeatable taste!</p>
             <a href="../PizzaGo/view/login.php" class="hero-btn">Order Now</a>
         </div>
     </section>
@@ -80,5 +94,4 @@
 
 
 </body>
-
 </html>

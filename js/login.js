@@ -1,17 +1,14 @@
-// ../js/login.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const email = document.getElementById("email");
   const password = document.getElementById("password");
 
   function isValidEmail(value) {
-    // Simple email pattern (enough for uni project)
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return pattern.test(value);
   }
 
   function isValidPassword(value) {
-    // Alphanumeric only + minimum 6 characters
     const pattern = /^[A-Za-z0-9]{6,}$/;
     return pattern.test(value);
   }

@@ -25,7 +25,7 @@ $itemsText = !empty($order['items']) ? $order['items'] : "No items";
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PizzaGo | Update Status</title>
+  <title>PizzaGo|Update Order Status</title>
   <link rel="stylesheet" href="../css/common.css">
   <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../css/update.css">
@@ -78,7 +78,7 @@ $itemsText = !empty($order['items']) ? $order['items'] : "No items";
         <form action="../controller/pizzaStatusController.php" method="post" novalidate>
           <input type="hidden" name="order_id" value="<?= (int)$order['id'] ?>">
 
-          <label>Order Status <span class="req">*</span></label>
+          <label>Order Status</label>
           <select class="select" name="status" required>
             <option value="pending"   <?= $currentStatus === 'pending' ? 'selected' : '' ?>>Pending</option>
             <option value="preparing" <?= $currentStatus === 'preparing' ? 'selected' : '' ?>>Preparing</option>

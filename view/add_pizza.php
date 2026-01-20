@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("Location: login.php");
+    exit();
+}
 $activePage = "manage_pizzas";
 ?>
 
@@ -6,7 +11,7 @@ $activePage = "manage_pizzas";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add New Pizza - PizzaGo</title>
+    <title>PizzaGo|Add Pizza</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">
@@ -25,16 +30,16 @@ $activePage = "manage_pizzas";
 
         <div class="box">
             <form action="../controller/addPizzaController.php" method="post" novalidate>
-                <label>Pizza Name *</label>
+                <label>Pizza Name</label>
                 <input type="text" name="pizza_name" placeholder="Enter pizza name">
 
-                <label>Description *</label>
+                <label>Description</label>
                 <textarea name="description" placeholder="Enter description"></textarea>
 
-                <label>Price *</label>
+                <label>Price</label>
                 <input type="text" name="price" placeholder="Enter price">
 
-                <label>Availability *</label>
+                <label>Availability</label>
                 <select name="availability">
                     <option value="in_stock">In Stock</option>
                     <option value="out_of_stock">Out of Stock</option>

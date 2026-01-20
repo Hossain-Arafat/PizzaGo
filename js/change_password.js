@@ -1,4 +1,3 @@
-// ../js/change_password.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector('form[action="../controller/passwordController.php"]');
   if (!form) return;

@@ -13,10 +13,9 @@ $emailValue = $_SESSION['email'] ?? "";
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>My Profile - PizzaGo</title>
+    <title>PizzaGo|My Profile</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/profile.css">
@@ -33,10 +32,10 @@ $emailValue = $_SESSION['email'] ?? "";
             <h3>Profile Details</h3>
 
             <form action="../controller/profileController.php" method="post" novalidate>
-                <label>Name *</label>
+                <label>Name</label>
                 <input type="text" name="name" value="<?= htmlspecialchars($nameValue) ?>">
 
-                <label>Email *</label>
+                <label>Email</label>
                 <input type="email" name="email" value="<?= htmlspecialchars($emailValue) ?>">
 
                 <div class="buttons">
@@ -52,5 +51,4 @@ $emailValue = $_SESSION['email'] ?? "";
     <script src="../js/profile.js"></script>
 
 </body>
-
 </html>

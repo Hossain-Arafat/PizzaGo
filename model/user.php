@@ -11,7 +11,6 @@ function loginUser($user)
         die("Query failed: " . mysqli_error($conn));
     }
 
-
     if (mysqli_num_rows($result) == 1) {
         return mysqli_fetch_assoc($result);
     }
@@ -79,7 +78,6 @@ function deleteStaff($id){
     $conn = dbConnection();
     $id = (int)$id;
 
-    // Optional safety: only delete if role is staff
     $query = "DELETE FROM users WHERE id=$id AND role='staff'";
     return mysqli_query($conn, $query) ? true : false;
 }

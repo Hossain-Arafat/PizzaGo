@@ -1,4 +1,3 @@
-// ../js/edit_pizza.js
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector('form[action="../controller/updatePizzaController.php"]');
 

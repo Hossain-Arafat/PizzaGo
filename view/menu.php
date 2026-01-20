@@ -16,7 +16,7 @@ $pizzas = getAvailablePizzasForMenu();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>PizzaGo|Menu</title>
     <link rel="stylesheet" href="../css/common.css">
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/navBar.css">
@@ -59,20 +59,14 @@ $pizzas = getAvailablePizzasForMenu();
                             <button type="submit" class="add-btn" name="add_to_cart" <?= !$isInStock ? 'disabled' : '' ?>>
                                 Add to Cart
                             </button>
-
                         </form>
-
                     </div>
-
                 <?php endforeach; ?>
             <?php else : ?>
                 <p style="padding: 16px;">No pizzas found.</p>
             <?php endif; ?>
-
         </div>
-
     </div>
     <?php include "footer.php"; ?>
 </body>
-
 </html>
