@@ -5,15 +5,16 @@ if (!isset($_SESSION['isLoggedIn'])) {
     exit();
 }
 $activePage = 'cart';
-
 require_once "../model/pizza.php";
 $cart = $_SESSION['cart'] ?? [];
 $total = 0;
 $deliveryFee = 60.00;
+
 if (empty($cart)) {
     $deliveryFee = 0;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@ if (empty($cart)) {
 
 <body>
 
-    <!-- Keep these includes if your header/navbar/footer are separate files -->
+    
     <?php include "header.php"; ?>
     <?php include "navigationBar.php"; ?>
 
@@ -38,7 +39,6 @@ if (empty($cart)) {
 
         <div class="cart-layout">
 
-            <!-- LEFT: CART TABLE CARD -->
             <div class="cart-card">
                 <table class="cart-table">
                     <thead>
@@ -50,7 +50,6 @@ if (empty($cart)) {
                             <th>ACTIONS</th>
                         </tr>
                     </thead>
-
 
 
                     <tbody>
@@ -87,7 +86,7 @@ if (empty($cart)) {
 
             <?php $grandTotal = $total + $deliveryFee; ?>
 
-            <!-- RIGHT: ORDER SUMMARY -->
+            
             <div class="summary-card">
                 <h2 class="summary-title">Order Summary</h2>
 

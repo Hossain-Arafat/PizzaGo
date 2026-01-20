@@ -4,10 +4,10 @@ if (!isset($_SESSION['isLoggedIn'])) {
     header("Location: login.php");
     exit();
 }
-
 require_once "../model/pizza.php";
 $pizzas = getAllPizzas();
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +54,6 @@ $pizzas = getAllPizzas();
                 </div>
 
                 <label class="switch">
-                  <!-- Send pizza id + checkbox -->
                   <input type="checkbox" name="availability[<?= (int)$p['id'] ?>]" <?= $isInStock ? "checked" : "" ?>>
                   <span class="slider"></span>
                 </label>

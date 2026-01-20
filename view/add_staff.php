@@ -8,7 +8,6 @@ $activePage = "staff";
     <meta charset="UTF-8">
     <title>Add Staff - PizzaGo</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
-
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/add_staff.css">

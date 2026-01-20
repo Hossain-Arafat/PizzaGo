@@ -4,12 +4,10 @@ if (!isset($_SESSION['isLoggedIn'])) {
     header("Location: login.php");
     exit();
 }
-
 require_once "../model/order.php";
-
 $orders = getRecentOrdersForAdmin();
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +64,7 @@ $orders = getRecentOrdersForAdmin();
                     </span>
                   </td>
                   <td>
-                    <!-- Pass order id so update page knows which order to update -->
+                    
                     <a href="update.php?order_id=<?= (int)$o['id'] ?>" class="btn">Update Status</a>
                   </td>
                 </tr>
