@@ -1,6 +1,5 @@
 <?php
 $activePage = "manage_pizzas";
-
 require_once "../model/pizza.php";
 $pizzas = getAllPizzas();
 ?>
@@ -54,10 +53,9 @@ $pizzas = getAllPizzas();
                             <td>৳<?= htmlspecialchars($pizza['price']) ?></td>
                             <td><span class="status <?= $statusClass ?>"><?= $statusText ?></span></td>
                             <td class="actions">
-                                <!-- Edit -->
+                                
                                 <a class="icon-btn" href="edit_pizza.php?id=<?= $pizza['id'] ?>" title="Edit">✏️</a>
 
-                                <!-- Delete (POST form for safety) -->
                                 <form action="../controller/deletePizzaController.php" method="post" style="display:inline;">
                                     <input type="hidden" name="id" value="<?= $pizza['id'] ?>">
                                     <button type="submit" class="icon-btn" title="Delete"

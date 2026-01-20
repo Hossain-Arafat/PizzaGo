@@ -6,6 +6,7 @@ if (!isset($_SESSION['isLoggedIn'])) {
     header("location: login.php");
     exit();
 }
+
 $nameValue  = $_SESSION['name'] ?? "";
 $emailValue = $_SESSION['email'] ?? "";
 ?>
@@ -18,7 +19,6 @@ $emailValue = $_SESSION['email'] ?? "";
     <title>My Profile - PizzaGo</title>
     <link rel="shortcut icon" href="../image/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/common.css">
-
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 
@@ -47,8 +47,10 @@ $emailValue = $_SESSION['email'] ?? "";
             </form>
         </div>
     </div>
+    
     <?php include "footer.php" ?>
     <script src="../js/profile.js"></script>
+
 </body>
 
 </html>

@@ -54,7 +54,6 @@ $pizzas = getAvailablePizzasForMenu();
                         <p class="menu-desc"><?= htmlspecialchars($pizza['description'] ?? '') ?></p>
                         <div class="menu-price">৳<?= htmlspecialchars($pizza['price']) ?></div>
 
-                        <!-- KEEP cart.php logic same -->
                         <form method="post" action="../controller/orderController.php">
                             <input type="hidden" name="pizza_id" value="<?= $pizza['id'] ?>">
                             <button type="submit" class="add-btn" name="add_to_cart" <?= !$isInStock ? 'disabled' : '' ?>>

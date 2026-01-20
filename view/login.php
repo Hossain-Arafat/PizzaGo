@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>PizzaGo Login</title>
     <link rel="stylesheet" href="../css/common.css">
@@ -34,11 +35,10 @@
         <a href="signup.php">Register</a>
         </p>
 
-   
-
     </div>
 
 <?php include "footer.php"; ?>
 <script src="../js/login.js"></script>
+
 </body>
 </html>
