@@ -14,7 +14,6 @@ body {
 }
 
 
-
 .logo {
     display: flex;
     align-items: center;
@@ -25,7 +24,6 @@ body {
 .logo img {
     width: 30px;
 }
-
 
 .main {
     flex: 1;
@@ -75,6 +73,8 @@ th, td {
     background: #e3f2fd;
     color: #1976d2;
 }
+
+
 
 
 
