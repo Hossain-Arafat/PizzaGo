@@ -1,11 +1,7 @@
-/* ===========================
-   NAVBAR
-=========================== */
 .navbar {
   width: 100%;
   background: #ffffff;
 
-  /* MORE up-down white space (height) */
   padding: 30px 40px;
 
   display: flex;
