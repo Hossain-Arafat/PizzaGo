@@ -8,11 +8,8 @@ if (!isset($_SESSION['isLoggedIn'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_availability'])) {
+    $checked = $_POST['availability'] ?? [];
 
-    // availability array will contain only checked pizzas
-    $checked = $_POST['availability'] ?? [];  // e.g. [pizzaId => "on"]
-
-    // Convert checked list to ids
     $inStockIds = [];
     if (is_array($checked)) {
         foreach ($checked as $pizzaId => $val) {
@@ -20,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_availability']))
         }
     }
 
-    // Update all pizzas based on this selection
     updatePizzaAvailabilityBulk($inStockIds);
 
     header("Location: ../view/availability.php");

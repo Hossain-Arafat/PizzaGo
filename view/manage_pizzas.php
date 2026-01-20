@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['isLoggedIn'])) {
+    header("Location: login.php");
+    exit();
+}
 $activePage = "manage_pizzas";
 require_once "../model/pizza.php";
 $pizzas = getAllPizzas();

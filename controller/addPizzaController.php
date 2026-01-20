@@ -18,22 +18,18 @@ function addPizzaController()
     $price = trim($_POST['price']);
     $availability = trim($_POST['availability']);
 
-    // Required checks
     if ($name === "" || $description === "" || $price === "") {
         return ["ok" => false, "msg" => "All fields are required."];
     }
 
-    // Name validation (simple)
     if (strlen($name) < 2) {
         return ["ok" => false, "msg" => "Pizza name must be at least 2 characters."];
     }
 
-    // Price validation
     if (!is_numeric($price) || (float)$price <= 0) {
         return ["ok" => false, "msg" => "Price must be a positive number."];
     }
 
-    // Availability validation
     $allowed = ['in_stock', 'out_of_stock'];
     if (!in_array($availability, $allowed)) {
         return ["ok" => false, "msg" => "Invalid availability value."];

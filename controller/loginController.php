@@ -4,13 +4,11 @@ require_once "../model/user.php";
 
 function loginController()
 {
-    // 1) Check required fields exist
     if (!isset($_POST['email'], $_POST['password'])) {
         echo "Invalid request.";
         exit();
     }
 
-    // 2) Trim + validate inputs
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
@@ -19,19 +17,16 @@ function loginController()
         exit();
     }
 
-    // Email format validation
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format.";
         exit();
     }
 
-    // Password rule: alphanumeric + minimum 6 characters
     if (!preg_match('/^[A-Za-z0-9]{6,}$/', $password)) {
         echo "Password must be alphanumeric and at least 6 characters.";
         exit();
     }
 
-    // 3) Attempt login
     $user = [
         "email" => $email,
         "password" => $password
@@ -40,7 +35,6 @@ function loginController()
     $status = loginUser($user);
 
     if ($status) {
-        // Good practice (prevents session fixation)
         session_regenerate_id(true);
 
         $_SESSION['user_id'] = $status['id'];
@@ -59,7 +53,6 @@ function loginController()
             header('location:../view/assigned.php');
             exit();
         } else {
-            // If role is unknown, logout for safety
             session_unset();
             session_destroy();
             echo "Invalid role.";

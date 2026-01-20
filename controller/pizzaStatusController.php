@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     $orderId = (int)($_POST['order_id'] ?? 0);
     $status  = strtolower(trim($_POST['status'] ?? ''));
 
-    // Allow only valid enum values
     $allowed = ['pending', 'preparing', 'ready', 'delivered'];
     if ($orderId <= 0 || !in_array($status, $allowed)) {
         header("Location: ../view/assigned.php");
@@ -21,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
 
     $ok = updateOrderStatus($orderId, $status);
 
-    // Redirect back
     header("Location: ../view/assigned.php");
     exit();
 }

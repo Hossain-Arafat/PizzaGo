@@ -7,12 +7,6 @@ if (!isset($_SESSION['isLoggedIn'])) {
     exit();
 }
 
-// Optional: admin only
-if (($_SESSION['role'] ?? '') !== 'admin') {
-    header("Location: ../view/login.php");
-    exit();
-}
-
 function addStaffController()
 {
     if (!isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['role'])) {
@@ -22,9 +16,8 @@ function addStaffController()
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
-    $role = trim($_POST['role']); // should be staff from hidden input
+    $role = trim($_POST['role']);
 
-    // Required checks
     if ($name === "" || $email === "" || $password === "" || $role === "") {
         return ["ok" => false, "msg" => "All fields are required."];
     }
@@ -37,12 +30,10 @@ function addStaffController()
         return ["ok" => false, "msg" => "Invalid email format."];
     }
 
-    // Password rule: alphanumeric + min 6
     if (!preg_match('/^[A-Za-z0-9]{6,}$/', $password)) {
         return ["ok" => false, "msg" => "Password must be alphanumeric and at least 6 characters."];
     }
 
-    // Role validation: prevent tampering
     if ($role !== "staff") {
         return ["ok" => false, "msg" => "Invalid role selected."];
     }

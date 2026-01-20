@@ -20,19 +20,16 @@ if ($name === "" || $email === "") {
     exit();
 }
 
-// Name validation
 if (strlen($name) < 2) {
     echo "Name must be at least 2 characters.";
     exit();
 }
 
-// Email format validation
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "Invalid email format.";
     exit();
 }
 
-// Identify user by session email (current login email)
 $currentEmail = $_SESSION['email'] ?? "";
 if ($currentEmail === "") {
     header("location: ../view/login.php");

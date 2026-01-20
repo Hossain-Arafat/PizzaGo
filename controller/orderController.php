@@ -3,7 +3,6 @@ require_once "../model/pizza.php";
 require_once "../model/order.php";
 session_start();
 
-/* ADD TO CART */
 if (isset($_POST['add_to_cart'])) {
 
     $pizzaId = (int)$_POST['pizza_id'];
@@ -22,7 +21,6 @@ if (isset($_POST['add_to_cart'])) {
     exit();
 }
 
-/* REMOVE ITEM */
 if (isset($_POST['remove_item'])) {
     $pizzaId = (int)$_POST['pizza_id'];
     unset($_SESSION['cart'][$pizzaId]);
@@ -31,7 +29,6 @@ if (isset($_POST['remove_item'])) {
     exit();
 }
 
-/* PLACE ORDER */
 if (isset($_POST['place_order'])) {
 
     $userId = $_SESSION['user_id'];
@@ -44,7 +41,7 @@ if (isset($_POST['place_order'])) {
 
     placeOrder($userId, $cart);
 
-    unset($_SESSION['cart']); // clear cart
+    unset($_SESSION['cart']);
     header("Location: ../view/orders.php");
     exit();
 }

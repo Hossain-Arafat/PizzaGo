@@ -10,19 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] !== "POST") {
 $email = trim($_POST['email'] ?? "");
 $password = trim($_POST['password'] ?? "");
 
-// Required fields
 if ($email === "" || $password === "") {
     echo "Email and New Password are required.";
     exit();
 }
 
-// Email format validation
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "Invalid email format.";
     exit();
 }
 
-// Password rule: alphanumeric + minimum 6 characters
 if (!preg_match('/^[A-Za-z0-9]{6,}$/', $password)) {
     echo "Password must be alphanumeric and at least 6 characters (e.g., Abc123).";
     exit();

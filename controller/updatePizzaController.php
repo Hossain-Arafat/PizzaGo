@@ -7,7 +7,6 @@ if (!isset($_SESSION['isLoggedIn'])) {
     exit();
 }
 
-// Optional: admin only
 if (($_SESSION['role'] ?? '') !== 'admin') {
     header("Location: ../view/login.php");
     exit();
@@ -25,27 +24,22 @@ function updatePizzaController()
     $price = trim($_POST['price']);
     $availability = trim($_POST['availability']);
 
-    // Validate id
     if ($id === '' || !is_numeric($id) || (int)$id <= 0) {
         return ["ok" => false, "msg" => "Invalid pizza id."];
     }
 
-    // Required checks
     if ($name === '' || $description === '' || $price === '') {
         return ["ok" => false, "msg" => "All fields are required."];
     }
 
-    // Name validation
     if (strlen($name) < 2) {
         return ["ok" => false, "msg" => "Pizza name must be at least 2 characters."];
     }
 
-    // Price validation
     if (!is_numeric($price) || (float)$price <= 0) {
         return ["ok" => false, "msg" => "Price must be a positive number."];
     }
 
-    // Availability validation
     $allowed = ['in_stock', 'out_of_stock'];
     if (!in_array($availability, $allowed)) {
         return ["ok" => false, "msg" => "Invalid availability value."];
