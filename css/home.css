@@ -1,4 +1,3 @@
-/* HERO SECTION */
 .hero {
   width: 100%;
   background: #0b4dff;
@@ -19,7 +18,6 @@
   margin-bottom: 25px;
 }
 
-/* Red button (Order Now) */
 .hero-btn {
   display: inline-block;
   background: #ff2b2b;
@@ -34,7 +32,6 @@
   background: #e00000;
 }
 
-/* FEATURED SECTION */
 .featured {
   padding: 50px 15px;
   text-align: center;
@@ -46,7 +43,6 @@
   font-weight: bold;
 }
 
-/* Cards layout */
 .pizza-grid {
   max-width: 1200px;
   margin: 0 auto;
@@ -56,7 +52,6 @@
   flex-wrap: wrap;
 }
 
-/* Each card */
 .pizza-card {
   width: 330px;
   background: #ffffff;
@@ -66,7 +61,6 @@
   text-align: left;
 }
 
-/* Image wrapper to clip properly */
 .menu-img-wrap {
   width: 100%;
   height: 220px;
@@ -77,15 +71,13 @@
 }
 
 
-/* Actual image */
 .menu-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* KEY: fills without stretching */
+  object-fit: cover;      
   display: block;
 }
 
-/* Text */
 .pizza-card h3 {
   font-size: 18px;
   margin-bottom: 6px;
