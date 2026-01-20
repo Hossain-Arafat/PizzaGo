@@ -33,7 +33,6 @@
                     color: blue; vertical-align: middle; margin-left: 6px;">PizzaGo</span>
     </div>
 
-    <!-- HERO / BANNER -->
     <section class="hero">
         <div class="hero-content">
             <h1>Order Your Favorite Pizza Online</h1>
@@ -42,7 +41,6 @@
         </div>
     </section>
 
-    <!-- FEATURED PIZZAS -->
     <section class="featured">
         <h2>Featured Pizzas</h2>
 

@@ -25,14 +25,15 @@
         <input type="password" id="password" name="password"><br><br>
 
         <input type="hidden" name="role" value="customer">
-
         <input type="submit" value="Register">
     </form>
 
     <br>
+
     <p class="link">
         Already have an account? <a href="login.php">Login</a>
     </p>
+    
 </div>
 
 <?php include "footer.php"; ?>

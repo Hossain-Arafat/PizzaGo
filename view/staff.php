@@ -1,6 +1,5 @@
 <?php
 $activePage = "staff";
-
 require_once "../model/user.php";
 $staffList = getAllStaff();
 ?>

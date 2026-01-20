@@ -4,8 +4,6 @@ if (!isset($_SESSION['isLoggedIn'])) {
     header("Location: login.php");
     exit();
 }
-
-
 require_once "../model/order.php";
 
 $orderId = (int)($_GET['order_id'] ?? 0);
@@ -23,6 +21,7 @@ if (!$order) {
 $currentStatus = strtolower($order['status']);
 $itemsText = !empty($order['items']) ? $order['items'] : "No items";
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
