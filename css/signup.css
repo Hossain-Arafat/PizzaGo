@@ -1,36 +1,53 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background-color: #f2f2f2;
 }
 
-.logo {
-    width: 75px;
-    vertical-align: middle;
-}
-
-.title {
-    font-size: 20px;
-    font-weight: bold;
-    color: blue;
-}
-
 .box {
-    width: 350px;
+    width: 360px;
     background-color: white;
-    margin: 60px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
+    margin: 80px auto;
+    padding: 26px 24px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
 .box h3 {
     text-align: center;
+    margin: 0 0 18px 0;
+    font-size: 20px;
+    color: #111;
 }
 
-input, select {
+.box label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+input {
     width: 100%;
-    padding: 7px;
+    padding: 11px 12px;
     border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background: #fff;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input:focus {
+    outline: none;
+    border-color: blue;
+    box-shadow: 0 0 0 3px rgba(0, 0, 255, 0.12);
 }
 
 input[type="submit"] {
@@ -38,12 +55,28 @@ input[type="submit"] {
     color: white;
     border: none;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+input[type="submit"]:hover {
+    background-color: darkblue;
 }
 
 .link {
     text-align: center;
     font-size: 13px;
+    margin-top: 10px;
+    color: #444;
 }
 
+.link a {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-
+.link a:hover {
+    text-decoration: underline;
+}

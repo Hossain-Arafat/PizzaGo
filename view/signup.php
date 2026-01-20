@@ -16,18 +16,17 @@
 
     <form action="../controller/signupController.php" method="post" novalidate>
         <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" ><br><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
 
         <label for="email">Email</label><br>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
 
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" placeholder="Create a password"><br><br>
 
         <input type="hidden" name="role" value="customer">
         <input type="submit" value="Register">
     </form>
-    <br>
 
     <p class="link">
         Already have an account? <a href="login.php">Login</a>

@@ -18,10 +18,10 @@
 
         <form action="../controller/loginController.php" method="post" novalidate>
             <label>Email</label><br>
-            <input type="email" id="email" name="email"><br><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
 
             <label>Password</label><br>
-            <input type="password" id="password" name="password"><br><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
 
             <input type="submit" value="Login">
         </form>
@@ -29,7 +29,6 @@
         <p class="link">
         <a href="forget.php">Forgot Password?</a>
         </p>
-        <br>
         <p class="link">Don't have an account?
         <a href="signup.php">Register</a>
         </p>
