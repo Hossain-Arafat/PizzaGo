@@ -16,7 +16,7 @@
 
         <h3>Login to PizzaGo</h3><br>
 
-        <form id="loginForm" onsubmit="sendLogin(); return false;">
+        <form id="loginForm" onsubmit="sendLogin(); return false;" novalidate>
             <label>Email</label><br>
             <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
 
