@@ -16,7 +16,7 @@
 
         <h3>Login to PizzaGo</h3><br>
 
-        <form action="../controller/loginController.php" method="post" novalidate>
+        <form id="loginForm" onsubmit="sendLogin(); return false;">
             <label>Email</label><br>
             <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
 
@@ -25,7 +25,7 @@
 
             <input type="submit" value="Login">
         </form>
-        <br>
+        <div id="msg" class="msg"></div>
         <p class="link">
         <a href="forget.php">Forgot Password?</a>
         </p>

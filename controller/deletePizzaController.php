@@ -1,24 +1,22 @@
 <?php
 require_once "../model/pizza.php";
 
-function deletePizzaController(){
-    $id = trim($_POST['id'] ?? '');
-
-    if($id === '' || !is_numeric($id)){
-        return false;
-    }
-
-    return deletePizza((int)$id);
-}
-
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-    if(deletePizzaController()){
-        header("location: ../view/manage_pizzas.php");
-        exit();
-    } else {
-        echo "Delete failed (invalid id / DB error).";
-    }
-} else {
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
     echo "Invalid request.";
+    exit();
 }
-?>
+
+$id = trim($_POST['id'] ?? '');
+
+if ($id === '' || !is_numeric($id)) {
+    echo "Invalid pizza id.";
+    exit();
+}
+
+$ok = deletePizza((int)$id);
+
+if ($ok) {
+    echo "SUCCESS";
+} else {
+    echo "Delete failed (DB error).";
+}
